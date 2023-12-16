@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logged IP Addresses</title>
+</head>
+<body>
+    <h1>Logged IP Addresses</h1>
+    <ul>
+        {% for user_ip in logged_ips %}
+            <li>{{ user_ip.ip_address }} - {{ user_ip.timestamp }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
