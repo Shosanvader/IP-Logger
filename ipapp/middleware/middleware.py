@@ -7,8 +7,8 @@ class TimezoneMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Assume you have a function to get the user's timezone from their IP address
-        user_timezone = self.get_user_timezone(request.META.get('REMOTE_ADDR'))
+        # Function to get the user's timezone from their IP address
+        user_timezone = self.get_user_timezone(request.META.get('HTTP_X_FORWARDED_FOR'))
 
         # Set the timezone in the request
         request.timezone = user_timezone or timezone.get_current_timezone()

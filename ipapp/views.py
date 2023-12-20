@@ -12,7 +12,7 @@ def home(request):
 """This function collects the IP address and stores in the database.
     It also displays the current IP address"""
 def current_ip(request):
-    user_ip = request.META.get('REMOTE_ADDR')
+    user_ip = request.META.get('HTTP_X_FORWARDED_FOR')
 
     # Save the IP address to the database
     UserIP.objects.create(ip_address=user_ip)
